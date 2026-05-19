@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/M-zonte/bdsim-language---gmad---syntax-highlighter.git"
   },
-  "version": "0.0.1",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.120.0"
   },
@@ -20,17 +20,26 @@
     "onLanguage:GMAD"
   ],
   "contributes": {
-    "languages": [{
-      "id": "GMAD",
-      "aliases": ["GMAD", "GMAD"],
-      "extensions": [".gmad"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "GMAD",
-      "scopeName": "source.gmad",
-      "path": "./syntaxes/GMAD.tmLanguage.json"
-    }],
+    "languages": [
+      {
+        "id": "GMAD",
+        "aliases": [
+          "GMAD",
+          "GMAD"
+        ],
+        "extensions": [
+          ".gmad"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "GMAD",
+        "scopeName": "source.gmad",
+        "path": "./syntaxes/GMAD.tmLanguage.json"
+      }
+    ],
     "semanticTokenTypes": [
       {
         "id": "gmadVariable",
@@ -41,8 +50,7 @@
       "editor.semanticHighlighting.enabled": true,
       "editor.semanticTokenColorCustomizations": {
         "rules": {
-          "gmadVariable": 
-          {
+          "gmadVariable": {
             "foreground": "#9CDCFE"
           }
         }
