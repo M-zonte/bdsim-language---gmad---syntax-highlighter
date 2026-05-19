@@ -11,6 +11,7 @@
   "engines": {
     "vscode": "^1.120.0"
   },
+  "logo": "./bdsim-logo.png",
   "categories": [
     "Programming Languages"
   ],
