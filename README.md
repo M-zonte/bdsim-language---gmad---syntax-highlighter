@@ -27,7 +27,7 @@ You can customize the color of semantic variables via VS Code settings: in `sett
 - `language-configuration.json`: language configuration (comments, brackets, etc.).
 
 ## Requirements
-- VS Code 1.120.0 or higher (as specified in `package.json`).
+- VS Code 1.120.0 or higher (probably lower but didn't test for it).
 
 ## Known issues
 - The semantic provider uses a simple heuristic (basic line-by-line parsing). May not recognize complex declarations or multiple scopes.
