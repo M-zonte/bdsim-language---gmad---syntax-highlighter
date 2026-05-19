@@ -1,0 +1,112 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "BDSIM GMAD",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#elements"
+    },
+    {
+      "include": "#math_functions"
+    },
+    {
+      "include": "#units"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#parameters"
+    },
+    {
+      "include": "#identifiers"
+    }
+
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "match": "!.*$",
+          "name": "comment.line.exclamation.gmad"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "match": "\\b(print|line|stop|return|if|else|include|use|beam|option)\\b",
+          "name": "keyword.control.gmad"
+        }
+      ]
+    },
+    "elements": {
+      "patterns": [
+        {
+          "match": "\\b(drift|rbend|sbend|quadrupole|sextupole|octupole|decapole|multipole|thinmultipole|vkicker|hkicker|kicker|tkicker|rf|rfx|rfy|target|rcol|ecol|jcol|jcoltip|bmcol|degrader|muspoiler|shield|dump|solenoid|wirescanner|laser|gap|crystalcol|undulator|gaborlens|transform3d|rmatrix|thinrmatrix|element|marker|ct|muoncooler|gascap|gasjet)\\b",
+          "name": "entity.name.type.gmad"
+        }
+      ]
+    },
+    "math_functions": {
+      "patterns": [
+        {
+          "match": "\\b(sqrt|cos|sin|tan|exp|log|acos|asin|atan|abs)\\b",
+          "name": "support.function.math.gmad"
+        }
+      ]
+    },
+    "units": {
+      "patterns": [
+        {
+          "match": "\\b(m|cm|mm|um|nm|rad|mrad|GeV|MeV|keV|eV|Tesla|T|Hz|kHz|MHz|GHz|A)\\b",
+          "name": "constant.numeric.unit.gmad"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "begin": "\"",
+          "end": "\"",
+          "name": "string.quoted.double.gmad"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "match": "\\b([0-9]+(\\.[0-9]+)?([eE][+-]?[0-9]+)?)\\b",
+          "name": "constant.numeric.float.gmad"
+        }
+      ]
+    },
+
+    "parameters": {
+      "patterns": [
+        {
+          "name": "variable.parameter.gmad",
+          "match": "(?<=,\\s*)\\b[a-zA-Z_][a-zA-Z0-9_]*\\b(?=\\s*=)"
+        }
+      ]
+    },
+    "identifiers": {
+      "patterns": [
+        {
+          "name": "punctuation.definition.list.begin.markdown",
+          "match": "(?m)^\\s*([A-Za-z_][A-Za-z0-9_.]*)\\s*:"
+        }
+      ]
+    }
+  },
+  
+  "scopeName": "source.gmad"
+}

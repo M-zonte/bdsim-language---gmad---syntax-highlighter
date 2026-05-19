@@ -1,0 +1,46 @@
+{
+  "name": "bdsim-language---gmad---syntax-highlighter",
+  "displayName": "BDSim Language (.gmad)  Syntax Highlighter",
+  "description": "A syntax highligher for the BDSim .gmad format",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.120.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onLanguage:GMAD"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "GMAD",
+      "aliases": ["GMAD", "GMAD"],
+      "extensions": [".gmad"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "GMAD",
+      "scopeName": "source.gmad",
+      "path": "./syntaxes/GMAD.tmLanguage.json"
+    }],
+    "semanticTokenTypes": [
+      {
+        "id": "gmadVariable",
+        "description": "Variable already declared in the scope"
+      }
+    ],
+    "configurationDefaults": {
+      "editor.semanticHighlighting.enabled": true,
+      "editor.semanticTokenColorCustomizations": {
+        "rules": {
+          "gmadVariable": 
+          {
+            "foreground": "#9CDCFE"
+          }
+        }
+      }
+    }
+  }
+}
