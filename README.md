@@ -1,65 +1,47 @@
-# bdsim-language---gmad---syntax-highlighter README
+# BDSim GMAD Syntax Highlighter
 
-This is the README for your extension "bdsim-language---gmad---syntax-highlighter". After writing up a brief description, we recommend including the following sections.
+A VS Code extension that provides syntactic highlighting and semantic highlighting for `.gmad` files used by BDSim/GMAD.
+
+## What it does
+- Adds TextMate grammar for GMAD syntax (file in syntaxes/GMAD.tmLanguage.json).
+- Register a Semantic Tokens provider (`extension.js`) that highlights declared variables: collects defined variables (left side of `=`) and colors all their occurrences in the document.
+- Enable semantic highlighting configurable via `package.json` (token type `gmadVariable`).
 
 ## Features
+- Keyword and syntax highlighting via TextMate grammar.
+- Semantic highlighting of variables already declared in the same file (customizable default color).
+- Automatic activation for files with `.gmad` extension.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## How to use
+1. Open a file with `.gmad` extension in VS Code.
+2. The extension fires automatically (`onLanguage:GMAD` event).
+3. Declare variables using the syntax `name = value`; all occurrences of `name` in the file will be highlighted as declared variables.
 
-For example if there is an image subfolder under your extension project workspace:
+Example:
 
-\!\[feature X\]\(images/feature-x.png\)
+```
+beamEnergy = 5.0
+someParam = beamEnergy *2
+```
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+In this example `beamEnergy` will be highlighted where it is used.
+
+## Color configuration
+You can customize the color of semantic variables via VS Code settings: in `settings.json` add a rule in `editor.semanticTokenColorCustomizations.rules` for `gmadVariable` (see `package.json` for the example setting used by the extension).
+
+## Main files
+- `extension.js`: provider for Semantic Tokens and language registration.
+- `syntaxes/GMAD.tmLanguage.json`: TextMate grammar for GMAD syntax.
+- `language-configuration.json`: language configuration (comments, brackets, etc.).
 
 ## Requirements
+- VS Code 1.120.0 or higher (as specified in `package.json`).
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+## Known issues
+- The semantic provider uses a simple heuristic (basic line-by-line parsing). May not recognize complex declarations or multiple scopes.
 
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+## Contribute
+Open an issue or pull request if you want to improve the grammar, semantic provider or add tests.
 
 ---
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Thanks for using the extension — let me know if you want me to add testing instructions or more detailed examples.
