@@ -1,5 +1,6 @@
 {
   "name": "bdsim-language---gmad---syntax-highlighter",
+  "publisher": "mcapitan",
   "displayName": "BDSim Language (.gmad)  Syntax Highlighter",
   "description": "A syntax highligher for the BDSim .gmad format",
   "repository": {
