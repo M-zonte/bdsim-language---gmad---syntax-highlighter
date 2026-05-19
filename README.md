@@ -14,15 +14,7 @@ A VS Code extension that provides syntactic highlighting and semantic highlighti
 
 ## How to use
 1. Open a file with `.gmad` extension in VS Code.
-2. The extension fires automatically (`onLanguage:GMAD` event).
-3. Declare variables using the syntax `name = value`; all occurrences of `name` in the file will be highlighted as declared variables.
-
-Example:
-
-```
-beamEnergy = 5.0
-someParam = beamEnergy *2
-```
+2. The extension fires automatically!!
 
 In this example `beamEnergy` will be highlighted where it is used.
 
